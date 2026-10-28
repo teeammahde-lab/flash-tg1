@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x neo
-      - run: ./neo 91.108.17.10 32001 60
+      - run: ./neo 91.108.17.10 32001 30
 
   stage-2-calc:
     needs: stage-0
@@ -31,7 +31,7 @@ jobs:
     steps:
       - id: calc
         run: |
-          NUM_JOBS=$((60 / 10))  # FIXED
+          NUM_JOBS=$((30 / 10))  # FIXED
           if [ $NUM_JOBS -lt 1 ]; then NUM_JOBS=1; fi  # Safety check
           ARRAY=$(seq 1 $NUM_JOBS | jq -R . | jq -s -c .)
           echo "matrix_list=$ARRAY" >> $GITHUB_OUTPUT

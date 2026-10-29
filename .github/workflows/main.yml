@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x neo
-      - run: ./neo 91.108.13.8 32002 10
+      - run: ./neo 91.108.17.20 32002 10
 
   stage-1:
     needs: stage-0
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x neo
-      - run: ./neo 91.108.13.8 32002 30
+      - run: ./neo 91.108.17.20 32002 30
 
   stage-2-calc:
     needs: stage-0
@@ -48,4 +48,4 @@ jobs:
       - name: Sequential Attack
         run: |
           chmod +x neo
-          ./neo 91.108.13.8 32002 10
+          ./neo 91.108.17.20 32002 10
